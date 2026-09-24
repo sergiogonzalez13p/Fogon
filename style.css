@@ -1,0 +1,350 @@
+/* ==========================================================================
+   PLANTILLA DE MENÚ · Negro & Naranja con fotos
+   Concepto: portada en duotono (blanco y negro teñido de naranja) y
+   fotos de platos a color que resaltan sobre el fondo negro.
+   Índice:
+     1. Variables (aquí cambias colores y tipografías por cliente)
+     2. Reset y base
+     3. Portada
+     4. Navegación
+     5. Categorías
+     6. Platos (normal, destacado y sin foto)
+     7. Etiquetas
+     8. Pie de página
+     9. Responsive y accesibilidad
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+:root {
+  /* Colores */
+  --bg:     #0c0c0c;   /* fondo negro */
+  --panel:  #171717;   /* fondo de fotos y etiquetas */
+  --line:   #2b2b2b;   /* separadores */
+  --ink:    #f4efe8;   /* texto principal */
+  --muted:  #a3a19c;   /* descripciones */
+  --accent: #ff7a1a;   /* color de acento (naranja) */
+
+  /* Tipografías */
+  --font-display: 'Syne', sans-serif;
+  --font-text:    'Manrope', sans-serif;
+
+  /* Forma y espaciado */
+  --gutter: 22px;
+  --radius: 14px;
+  --thumb: 104px;      /* tamaño de la foto en platos normales */
+}
+
+
+/* ==========================================================================
+   2. RESET Y BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  padding-bottom: 60px;
+  font-family: var(--font-text);
+  color: var(--ink);
+  background: var(--bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   3. PORTADA (foto en duotono + nombre grande)
+   ========================================================================== */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(68svh, 520px);
+  overflow: hidden;
+  isolation: isolate;                 /* aísla el efecto de mezcla de colores */
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.15);
+}
+
+/* Capa naranja que tiñe la foto en blanco y negro */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--accent);
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+}
+
+/* Degradado inferior: la foto se funde con el fondo negro */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, transparent 35%, var(--bg) 100%);
+}
+
+.hero-texto {
+  width: 100%;
+  padding: 0 var(--gutter) 30px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 22vw, 9rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+.sub {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+
+/* ==========================================================================
+   4. NAVEGACIÓN (barra fija con scroll horizontal)
+   ========================================================================== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  padding: 12px var(--gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+nav a {
+  flex-shrink: 0;
+  padding: 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+
+/* ==========================================================================
+   5. CATEGORÍAS
+   ========================================================================== */
+section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 44px var(--gutter) 4px;
+}
+
+/* Título con línea naranja que se extiende hasta el borde */
+section h2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+section h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--accent);
+}
+
+
+/* ==========================================================================
+   6. PLATOS
+   ========================================================================== */
+
+/* --- Plato normal: texto a la izquierda, foto a la derecha --- */
+.plato {
+  display: grid;
+  grid-template-columns: 1fr var(--thumb);
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.plato:last-child {
+  border-bottom: 0;
+}
+
+.foto {
+  grid-column: 2;
+  grid-row: 1;
+  width: var(--thumb);
+  height: var(--thumb);
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.info {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.fila h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.precio {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.plato p {
+  margin-top: 6px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* --- Plato destacado: foto grande arriba --- */
+.plato.destacado {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.plato.destacado .foto,
+.plato.destacado .info {
+  grid-column: 1;
+}
+
+.plato.destacado .foto {
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+}
+
+.plato.destacado .info {
+  grid-row: 2;
+}
+
+.plato.destacado h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* --- Plato sin foto: solo texto --- */
+.plato.sin-foto {
+  grid-template-columns: 1fr;
+}
+
+
+/* ==========================================================================
+   7. ETIQUETAS (Nuevo, Picante, Vegano...)
+   ========================================================================== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 3px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   8. PIE DE PÁGINA
+   ========================================================================== */
+footer {
+  padding: 36px var(--gutter) 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE Y ACCESIBILIDAD
+   ========================================================================== */
+@media (min-width: 760px) {
+  :root {
+    --thumb: 128px;
+  }
+
+  nav {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  nav a { transition: none; }
+}

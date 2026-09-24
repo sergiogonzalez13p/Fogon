@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fogón · Carta</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PORTADA
+       Cambia img/portada.svg por tu foto (ej: img/portada.jpg).
+       El estilo la convierte automáticamente en blanco y negro
+       teñido de naranja para que siempre combine.
+       ============================================================ -->
+  <header class="hero">
+    <img src="img/fogon.jpg" alt="">
+    <div class="hero-texto">
+      <h1>Fogón</h1>
+      <p class="sub">cocina colombiana de la que abraza</p>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       NAVEGACIÓN: un enlace por categoría
+       (el href debe coincidir con el id de la sección)
+       ============================================================ -->
+  <nav>
+    <a href="#entradas">Entradas</a>
+    <a href="#sopas">Sopas</a>
+    <a href="#fuertes">Platos fuertes</a>
+    <a href="#postres">Postres</a>
+    <a href="#bebidas">Bebidas</a>
+  </nav>
+
+
+  <!-- ============================================================
+       MENÚ
+
+       TIPOS DE PLATO (elige uno al copiar):
+         1. Normal .............. <article class="plato">
+         2. Destacado (foto grande) <article class="plato destacado">
+         3. Sin foto ............ <article class="plato sin-foto">
+                                  (borra la línea <img>)
+
+       ETIQUETAS opcionales (Nuevo, Picante, Vegano...):
+         <ul class="tags"><li>Nuevo</li></ul>
+
+       FOTOS: guarda tus imágenes en la carpeta img/ y cambia
+       src="img/placeholder.svg" por src="img/nombre-de-tu-foto.jpg"
+       ============================================================ -->
+  <main>
+
+    <!-- ENTRADAS -->
+    <section id="entradas">
+      <h2>Entradas</h2>
+
+      <article class="plato">
+        <img class="foto" src="img/arepas-colombianas-con-queso.jpg" alt="Arepa de queso" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Arepa de queso</h3>
+            <span class="precio">$9.000</span>
+          </div>
+          <p>Arepa de maíz blanco asada al momento, rellena de queso campesino y mantequilla.</p>
+          <ul class="tags"><li>Vegetariano</li></ul>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/Empanada-colombiana-6.jpg" alt="Empanadas colombianas" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Empanadas (3 unidades)</h3>
+            <span class="precio">$12.000</span>
+          </div>
+          <p>Crocantes, de carne y papa criolla, con ají casero.</p>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/Patacones-con-carne-de-hierro-fundido.webp" alt="Patacones con hogao" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Patacones con hogao</h3>
+            <span class="precio">$14.000</span>
+          </div>
+          <p>Plátano verde aplastado y frito, con hogao y queso costeño.</p>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/Deditos-De-Queso-Imagen-Destacada.jpg" alt="Deditos de queso" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Deditos de queso</h3>
+            <span class="precio">$10.000</span>
+          </div>
+          <p>Masa de queso frita, servida con bocadillo de guayaba.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- SOPAS -->
+    <section id="sopas">
+      <h2>Sopas</h2>
+
+      <article class="plato destacado">
+        <img class="foto" src="img/GBBYJH5YMZC6PEINHE3HZZH4TY.jpg" alt="Ajiaco santafereño" width="600" height="400" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Ajiaco santafereño</h3>
+            <span class="precio">$32.000</span>
+          </div>
+          <p>Pollo, tres tipos de papa, mazorca y guascas. Servido con crema de leche, alcaparras y aguacate.</p>
+          <ul class="tags"><li>Favorito</li><li>Tradicional</li></ul>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/sancocho_gallina.jpg" alt="Sancocho de gallina" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Sancocho de gallina</h3>
+            <span class="precio">$28.000</span>
+          </div>
+          <p>Cocido lento con yuca, plátano y mazorca. Viene con arroz y aguacate.</p>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/mondongo.jpg" alt="Sancocho de gallina" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Sancocho de gallina</h3>
+            <span class="precio">$28.000</span>
+          </div>
+          <p>Cocido lento con yuca, plátano y mazorca. Viene con arroz y aguacate.</p>
+        </div>
+      </article>
+
+    <!-- PLATOS FUERTES -->
+    <section id="fuertes">
+      <h2>Platos fuertes</h2>
+
+      <article class="plato destacado">
+        <img class="foto" src="img/bandeja_paisa.jpg" alt="Bandeja paisa" width="600" height="400" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Bandeja paisa</h3>
+            <span class="precio">$42.000</span>
+          </div>
+          <p>Frijoles, arroz, carne molida, chicharrón, chorizo, huevo frito, plátano maduro, arepa y aguacate.</p>
+          <ul class="tags"><li>Favorito</li><li>Para compartir</li></ul>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/sobrebarriga.jpg" alt="Sobrebarriga a la criolla" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Sobrebarriga a la criolla</h3>
+            <span class="precio">$36.000</span>
+          </div>
+          <p>Cocida y asada, en salsa criolla de tomate y cebolla, con papas y arroz.</p>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/mojarra.jpg" alt="Mojarra frita" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Mojarra frita</h3>
+            <span class="precio">$38.000</span>
+          </div>
+          <p>Entera y crocante, con patacón, arroz de coco y ensalada.</p>
+        </div>
+      </article>
+
+      <article class="plato sin-foto">
+        <div class="info">
+          <div class="fila">
+            <h3>Fritanga</h3>
+            <span class="precio">$44.000</span>
+          </div>
+          <p>Chorizo, morcilla, chicharrón, costilla, papa criolla y yuca. Ideal para dos.</p>
+          <ul class="tags"><li>Para compartir</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- POSTRES -->
+    <section id="postres">
+      <h2>Postres</h2>
+
+      <article class="plato destacado">
+        <img class="foto" src="img/merengon.jpg" alt="Merengón" width="600" height="400" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Merengón</h3>
+            <span class="precio">$14.000</span>
+          </div>
+          <p>Merengue crocante, crema chantilly y frutas frescas: fresa, mora y kiwi.</p>
+          <ul class="tags"><li>Favorito</li></ul>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/miloja.jpg" alt="Milhoja con arequipe" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Milhoja</h3>
+            <span class="precio">$12.000</span>
+          </div>
+          <p>Hojaldre crujiente con arequipe y crema pastelera, espolvoreada con azúcar glass.</p>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/brevas.jpg" alt="Brevas con arequipe" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Brevas con arequipe</h3>
+            <span class="precio">$13.000</span>
+          </div>
+          <p>Brevas en almíbar con arequipe y queso fresco.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- BEBIDAS -->
+    <section id="bebidas">
+      <h2>Bebidas</h2>
+
+      <article class="plato">
+        <img class="foto" src="img/chocolate.jpg" alt="Chocolate santafereño con queso" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Chocolate santafereño</h3>
+            <span class="precio">$10.000</span>
+          </div>
+          <p>Chocolate caliente espeso, servido con queso campesino y pan.</p>
+          <ul class="tags"><li>Tradicional</li></ul>
+        </div>
+      </article>
+
+      <article class="plato">
+        <img class="foto" src="img/limcoco.jpg" alt="Limonada de coco" width="200" height="200" loading="lazy">
+        <div class="info">
+          <div class="fila">
+            <h3>Limonada de coco</h3>
+            <span class="precio">$12.000</span>
+          </div>
+          <p>Cremosa, fría y con un toque de hierbabuena.</p>
+        </div>
+      </article>
+
+      <article class="plato sin-foto">
+        <div class="info">
+          <div class="fila">
+            <h3>Jugo de lulo</h3>
+            <span class="precio">$9.000</span>
+          </div>
+          <p>Natural, en agua o en leche.</p>
+        </div>
+      </article>
+
+      <article class="plato sin-foto">
+        <div class="info">
+          <div class="fila">
+            <h3>Agua de panela con limón</h3>
+            <span class="precio">$6.000</span>
+          </div>
+          <p>Fría o caliente.</p>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer>
+    <p>Pregunta por alérgenos. Precios con impuestos incluidos.</p>
+  </footer>
+
+</body>
+</html>
